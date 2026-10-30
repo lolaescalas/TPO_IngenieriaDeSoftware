@@ -1,11 +1,14 @@
 package chess;
 
 import chess.adapters.console.ConsoleApp;
+import chess.adapters.swing.SwingApp;
 
+import java.awt.GraphicsEnvironment;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import javax.swing.SwingUtilities;
 
 /**
  * Punto de entrada y <b>composition root</b>: el único lugar donde se eligen las
@@ -18,6 +21,10 @@ public final class Main {
     }
 
     public static void main(String[] args) {
+        if (args.length == 0 && !GraphicsEnvironment.isHeadless()) {
+            SwingUtilities.invokeLater(() -> new SwingApp().run());
+            return;
+        }
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
         PrintStream out = new PrintStream(System.out, true, StandardCharsets.UTF_8);
         new ConsoleApp(in, out).run();
