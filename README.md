@@ -14,6 +14,14 @@ cd backend
 java -jar target/chess.jar
 ```
 
+El programa abre una interfaz gráfica controlada con mouse: desde el menú se elige humano vs.
+humano, quién juega contra la IA y la dificultad. En el tablero se hace clic en una pieza y luego
+en su destino, o se la arrastra y suelta; los destinos legales se distinguen entre movimiento y
+captura, y se resaltan la última jugada y el jaque. La interfaz usa tablero de madera y un set de
+piezas ilustradas incluido en el JAR. Incluye historial, deshacer/rehacer, tablas, rendición y
+promoción. Para conservar la interfaz de texto se puede ejecutar
+`java -jar target/chess.jar --console`.
+
 ## Cómo se juega
 | Comando | Acción |
 |---|---|
